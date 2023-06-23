@@ -9,5 +9,9 @@
 	<select id="listDao" resultType="com.gyojincompany.mybatis.board.dto.BoardDto">
 		SELECT * FROM my_board ORDER BY bnum DESC
 	</select>
+	
+	<insert id="writeDao">
+		INSERT INTO my_board(bnum, bid, btitle, bcontent, bhit) VALUES(my_board_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
+	</insert>
 
 </mapper>    

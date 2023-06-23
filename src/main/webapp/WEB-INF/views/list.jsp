@@ -8,6 +8,15 @@
 <title>글 목록 보기</title>
 </head>
 <body>
+	<%
+		String sessionId = (String)session.getAttribute("sessionId");
+		if(sessionId != null) {	
+	%>
+		현재 로그인 중인 아이디 :  <%= sessionId %>
+	<%
+		}
+	%>	
+
 	<h2>게시판 글목록</h2>
 	<hr>
 	

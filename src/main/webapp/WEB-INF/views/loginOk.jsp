@@ -20,5 +20,8 @@
 	%>
 	
 	<h2>${memberID }님 로그인 성공하셨습니다.</h2>
+	<a href="logout">로그아웃</a><br><br>
+	<a href="list">게시판 목록보기</a>
+	
 </body>
 </html>

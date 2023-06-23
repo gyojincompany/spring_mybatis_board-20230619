@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2>${memberID }님 회원 가입을 축하드립니다.</h2>
+	<a href="login">회원 로그인 바로 가기</a>
 </body>
 </html>
