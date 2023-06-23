@@ -33,7 +33,7 @@
 		<tr>
 			<td>${boardDto.bnum }</td>
 			<td>
-			<a href="content_view?bid=${boardDto.bnum }">${boardDto.btitle }</a>
+			<a href="content_view?bnum=${boardDto.bnum }">${boardDto.btitle }</a>
 			</td>
 			<td>${boardDto.bid }</td>
 			<td>${boardDto.bdate }</td>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gyojincompany.mybatis.board.dao.BoardDao;
+import com.gyojincompany.mybatis.board.dto.BoardDto;
 import com.gyojincompany.mybatis.member.dao.MemberDao;
 
 @Controller
@@ -53,6 +54,22 @@ public class BoardController {
 		dao.writeDao(request.getParameter("bid"), request.getParameter("btitle"), request.getParameter("bcontent"));
 		
 		return "redirect:list";
+	}
+	
+	@RequestMapping(value = "/content_view")
+	public String content_view(HttpServletRequest request, Model model) {
+		
+//		request.getParameter("bid");//클라이언트가 클릭한 글의 번호
+		
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		
+		BoardDto boardDto = dao.contentViewDao(request.getParameter("bnum"));
+		
+		//System.out.println("글제목테스트:"+boardDto.getBtitle());
+		
+		model.addAttribute("boardDto", boardDto);
+		
+		return "contentView";
 	}
 
 }
