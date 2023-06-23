@@ -59,7 +59,7 @@ public class BoardController {
 	@RequestMapping(value = "/content_view")
 	public String content_view(HttpServletRequest request, Model model) {
 		
-//		request.getParameter("bid");//클라이언트가 클릭한 글의 번호
+//		request.getParameter("bnum");//클라이언트가 클릭한 글의 번호
 		
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		
@@ -70,6 +70,32 @@ public class BoardController {
 		model.addAttribute("boardDto", boardDto);
 		
 		return "contentView";
+	}
+	
+	@RequestMapping(value = "/content_modify")
+	public String content_modify(HttpServletRequest request, Model model) {
+		
+//		request.getParameter("bnum");//클라이언트가 클릭한 글의 번호
+		
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		
+		BoardDto boardDto = dao.contentViewDao(request.getParameter("bnum"));
+		
+		//System.out.println("글제목테스트:"+boardDto.getBtitle());
+		
+		model.addAttribute("boardDto", boardDto);
+		
+		return "contentModify";
+	}
+	
+	@RequestMapping(value = "/modify")
+	public String modify(HttpServletRequest request) {
+		
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		
+		dao.contentModifyDao(request.getParameter("bnum"), request.getParameter("btitle"), request.getParameter("bcontent"));
+		
+		return "redirect:list";
 	}
 
 }

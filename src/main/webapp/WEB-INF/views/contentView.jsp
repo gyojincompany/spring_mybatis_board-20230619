@@ -14,6 +14,7 @@
 	글제목 : ${boardDto.btitle }<br><br>
 	글내용 : ${boardDto.bcontent }<br><br>
 	조회수 : ${boardDto.bhit }<br><br>
+	<input type="button" value="수정" onclick="javascript:window.location.href='content_modify?bnum=${boardDto.bnum }'">
 	<input type="button" value="삭제">
 	<input type="button" value="글목록" onclick="javascript:window.location.href='list'"> 
 </body>

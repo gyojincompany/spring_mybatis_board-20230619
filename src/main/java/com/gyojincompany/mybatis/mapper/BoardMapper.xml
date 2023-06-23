@@ -17,5 +17,9 @@
 	<select id="contentViewDao" resultType="com.gyojincompany.mybatis.board.dto.BoardDto">
 		SELECT * FROM my_board WHERE bnum = #{param1}
 	</select>
+	
+	<update id="contentModifyDao">
+		UPDATE my_board SET btitle=#{param2}, bcontent=#{param3} WHERE bnum=#{param1}
+	</update>
 
 </mapper>    
